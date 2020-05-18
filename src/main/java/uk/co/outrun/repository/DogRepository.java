@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface DogRepository extends MongoRepository<Dog, String> {
 
-    List<Dog> findByName(String name);
+    List<Dog> findByRegName(String regName);
+    Dog findByDogId(Integer dogId);
 }

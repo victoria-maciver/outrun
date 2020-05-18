@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import uk.co.outrun.model.Dog;
 import uk.co.outrun.repository.DogRepository;
 
+import java.util.List;
+
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
@@ -21,16 +23,36 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        repository.save(new Dog("Felix"));
-        repository.save(new Dog("Lance"));
+        Dog felix = repository.findByDogId(1);
 
-        for (Dog dog : repository.findAll()) {
-            System.out.println(dog);
-        }
-        System.out.println();
+        Dog brin = repository.findByDogId(felix.getSireId());
+        Dog fig = repository.findByDogId(felix.getDamId());
 
-        repository.save(new Dog("Felix"));
+        System.out.println(felix.getCallName() + "'s sire is " + brin.getCallName() + " and his dam is "
+                + fig.getCallName());
 
-        repository.findAll();
+
+        Dog lance = Dog.builder()
+                .regName("Seren Lance")
+                .callName("Lance")
+        repository.save(lance);
+
+        List<Dog> wee = repository.findByRegName("Seren Lance");
+
+        System.out.println(wee.get(0).getCallName() + " is the new dog!");
+
+        Dog ben = new Dog("Ben");
+
+
+        lance.setSireId(ben.getDogId());
+
+//
+//        for (Dog dog : repository.findAll()) {
+//            System.out.println(dog);
+//        }
+//        System.out.println();
+//
+//
+//        repository.findAll();
     }
 }
