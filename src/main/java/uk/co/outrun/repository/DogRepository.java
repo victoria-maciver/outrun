@@ -22,7 +22,4 @@ public interface DogRepository extends MongoRepository<Dog, String> {
             "'sex' : { '$regex' : '.*?1.*' }}")
     List<Dog> customSearch(String regName, String sex);
 
-
-
-
 }
