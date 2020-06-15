@@ -3,6 +3,7 @@ package uk.co.outrun.model;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Map;
 @Getter
 @Setter
 @Builder
+@ToString
 public class Dog {
 
     @Id
@@ -39,18 +41,5 @@ public class Dog {
     private String coi;
     private Map<String, String> healthTests;
     private String notes;
-
-    public Dog() {
-
-    }
-
-    public Dog(String regName) {
-        this.regName = regName;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Dog[id='%s', regName='%s']", id, regName);
-    }
 
 }

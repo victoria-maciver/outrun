@@ -5,4 +5,4 @@ spring:
       password: ${MONGO_INITDB_APP_PASSWORD:spring}
       database: ${MONGO_INITDB_DATABASE:outrun}
       port: ${MONGO_INITDB_PORT:27017}
-      host: ${MONGO_INITDB_HOST:outrun-db}
+      host: ${MONGO_INITDB_HOST:localhost}
