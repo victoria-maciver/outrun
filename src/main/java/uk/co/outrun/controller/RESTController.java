@@ -60,4 +60,10 @@ public class RESTController {
         }
         return allDogs;
     }
+
+    @PostMapping(value = "/dog/new")
+    public Dog newDog(@RequestBody Dog dog) {
+        dogService.newDog(dog);
+        return dogService.getDogByDogNum(dog.getDogNum());
+    }
 } 

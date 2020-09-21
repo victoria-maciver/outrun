@@ -12,9 +12,9 @@ public class DogNum {
 
     @Getter
     @Setter
-    public long seq;
+    public int seq;
 
-    public DogNum(long seq) {
+    public DogNum(int seq) {
         this.seq= seq;
     }
 

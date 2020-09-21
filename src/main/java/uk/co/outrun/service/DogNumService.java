@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DogNumService {
 
-    long getNext();
+    int getNext();
 }

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.co.outrun.model.Dog;
 import uk.co.outrun.model.SearchRequest;
-import uk.co.outrun.repository.DogNumRepository;
 import uk.co.outrun.repository.DogRepository;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class DogServiceImpl implements DogService {
     DogRepository dogRepository;
 
     @Autowired
-    DogNumRepository numRepository;
+    DogNumService numService;
 
     @Override
     public List<Dog> getAllDogs() {
@@ -38,6 +37,18 @@ public class DogServiceImpl implements DogService {
                 Objects.toString(req.getRegName(), ""),
                 Objects.toString(req.getSex(), "")
         );
+    }
+
+    @Override
+    public void newDog(Dog dog) {
+        int next = numService.getNext();
+        dog.setDogNum(next);
+        dogRepository.save(dog);
+    }
+
+    @Override
+    public Dog getDogByDogNum(int id) {
+        return dogRepository.findByDogNum(id);
     }
 
 

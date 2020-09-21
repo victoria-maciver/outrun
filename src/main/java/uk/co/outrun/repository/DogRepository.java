@@ -10,7 +10,10 @@ public interface DogRepository extends MongoRepository<Dog, String> {
 
     List<Dog> findByRegName(String regName);
 
-    Dog findByDogId(Integer dogId);
+    Dog findByDogNum(Integer dogNum);
+
+    @Query("{ 'dogNum: { '$")
+    Dog findMaxDogNum(Integer dogNum);
 
     @Query("{ 'regName': { '$regex' : '.*?0.*' }}")
     List<Dog> searchByRegName(String regName);

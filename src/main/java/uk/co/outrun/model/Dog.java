@@ -17,7 +17,7 @@ public class Dog {
 
     @Id
     private String id;
-    private Integer dogId;
+    private Integer dogNum;
     private String regName;
     private String regNo;
     private String chipNo;

@@ -10,7 +10,7 @@ import java.util.List;
 public interface DogService {
     List<Dog> getAllDogs();
 
-//    Dog getDogByDogId(int id);
+    Dog getDogByDogNum(int id);
 
     List<Dog> getDogByRegName(String regName);
 
@@ -18,7 +18,7 @@ public interface DogService {
 
     List<Dog> search(SearchRequest req);
 
-//    void newDog(Dog dog);
+    void newDog(Dog dog);
 
 //    void editDogById(int id, Dog dog);
 }
