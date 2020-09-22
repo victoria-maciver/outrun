@@ -3,7 +3,7 @@ ADD VERSION .
 ARG VERSION_NUMBER
 COPY ./target/outrun-0.1.0.jar /
 EXPOSE 8443
-EXPOSE 8080
+EXPOSE 8081
 
 RUN groupadd outrun && useradd -g outrun -s /bin/false outrun
 
