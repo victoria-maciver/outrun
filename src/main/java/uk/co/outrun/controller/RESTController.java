@@ -1,6 +1,7 @@
 package uk.co.outrun.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,8 @@ import uk.co.outrun.service.DogService;
 
 import java.util.List;
 
+// TODO - make this configurable
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class RESTController {
 
