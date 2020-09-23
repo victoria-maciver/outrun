@@ -1,11 +1,7 @@
 package uk.co.outrun.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uk.co.outrun.model.Dog;
 import uk.co.outrun.model.SearchRequest;
 import uk.co.outrun.service.DogService;
@@ -53,20 +49,19 @@ public class RESTController {
         return results;
     }
 
-    @GetMapping(value = "/dog/all")
-    public List<Dog> all() {
-        System.out.println("Listing all dogs...");
-        List<Dog> allDogs = dogService.getAllDogs();
-        System.out.println("Found: ");
-        for (Dog dog : allDogs) {
-            System.out.println(" - " + dog.getRegName());
-        }
-        return allDogs;
-    }
-
     @PostMapping(value = "/dog/new")
     public Dog newDog(@RequestBody Dog dog) {
         dogService.newDog(dog);
         return dogService.getDogByDogNum(dog.getDogNum());
     }
-} 
+
+    @GetMapping(value = "/dog/all")
+    public List<Dog> all() {
+        return dogService.getAllDogs();
+    }
+
+    @GetMapping(value = "/dog/{dogNum}")
+    public Dog getDog(@PathVariable int dogNum) {
+        return dogService.getDogByDogNum(dogNum);
+    }
+}

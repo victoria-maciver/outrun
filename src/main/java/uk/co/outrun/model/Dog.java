@@ -21,7 +21,7 @@ public class Dog {
     private String regName;
     private String regNo;
     private String chipNo;
-    private List<Map<String, Object>> dogImg;
+    private String dogImg;
     private String breeder;
     private String owner;
     private String kennel;
