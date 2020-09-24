@@ -64,4 +64,19 @@ public class RESTController {
     public Dog getDog(@PathVariable int dogNum) {
         return dogService.getDogByDogNum(dogNum);
     }
+
+    @GetMapping(value = "/dog/{dogNum}/familytree")
+    public List<Dog> getFamilyTree(@PathVariable int dogNum) {
+        return dogService.getFamilyTree(dogNum);
+    }
+
+    @GetMapping(value = "/dog/{dogNum}/children")
+    public List<Dog> getChildren(@PathVariable int dogNum) {
+        return dogService.getChildren(dogNum);
+    }
+
+    @GetMapping(value = "/dog/{dogNum}/siblings")
+    public List<Dog> getSiblings(@PathVariable int dogNum) {
+        return dogService.getSiblings(dogNum);
+    }
 }

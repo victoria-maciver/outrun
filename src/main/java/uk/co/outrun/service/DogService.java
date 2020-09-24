@@ -20,5 +20,11 @@ public interface DogService {
 
     void newDog(Dog dog);
 
+    List<Dog> getFamilyTree(int dogNum);
+
+    List<Dog> getChildren(int dogNum);
+
+    List<Dog> getSiblings(int dogNum);
+
 //    void editDogById(int id, Dog dog);
 }

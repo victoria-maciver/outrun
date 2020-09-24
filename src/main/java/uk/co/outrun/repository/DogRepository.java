@@ -25,4 +25,9 @@ public interface DogRepository extends MongoRepository<Dog, String> {
             "'sex' : { '$regex' : '.*?1.*' }}")
     List<Dog> customSearch(String regName, String sex);
 
+    @Query("{ $or: [ { sireId : ?0 }, { damId: ?0 } ] }")
+    List<Dog> findChildren(Integer dogNum);
+
+    @Query("{ $and: [ { sireId: ?1 }, { damId: ?2} ], 'dogNum': { $ne: ?0 }}")
+    List<Dog> findSiblings(Integer dogNum, Integer sireId, Integer damId);
 }
