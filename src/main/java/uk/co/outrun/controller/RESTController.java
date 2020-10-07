@@ -9,7 +9,7 @@ import uk.co.outrun.service.DogService;
 import java.util.List;
 
 // TODO - make this configurable
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 @RestController
 public class RESTController {
 
