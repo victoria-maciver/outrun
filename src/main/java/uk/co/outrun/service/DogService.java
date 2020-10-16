@@ -7,7 +7,8 @@ import java.util.List;
 
 @Service
 public interface DogService {
-    Iterable<Dog> getAllDogs();
+    List<Dog> getAllDogs();
+
     Dog getDogById(int id);
 
     List<Dog> getFamilyTree(int dogNum);

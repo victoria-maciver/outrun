@@ -25,10 +25,10 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
-    public Iterable<Dog> getAllDogs() {
-        return dogRepository.findAll();
-//        Iterable<Dog> all = dogRepository.findAll();
-//        return convertToList(all);
+    public List<Dog> getAllDogs() {
+        List<Dog> list = new ArrayList<>();
+        dogRepository.findAll().forEach(list::add);
+        return list;
     }
     
     @Override

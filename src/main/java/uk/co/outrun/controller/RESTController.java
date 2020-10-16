@@ -17,7 +17,7 @@ public class RESTController {
 
 
     @GetMapping(value = "/dog/all")
-    public @ResponseBody Iterable<Dog> getAllDogs() {
+    public List<Dog> getAllDogs() {
         return dogService.getAllDogs();
     }
 
