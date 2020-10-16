@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  outrun:
+    image: 725705545716.dkr.ecr.eu-west-2.amazonaws.com/outrun:latest
+    container_name: outrun
+    restart: always
+    ports:
+      - 81:8081
+
+  outrun-web:
+    image: 725705545716.dkr.ecr.eu-west-2.amazonaws.com/outrun-web:latest
+    container_name: outrun-web
+    restart: always
+    ports:
+      - 80:8080
+    depends_on:
+      - outrun
