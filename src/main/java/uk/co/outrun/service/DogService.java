@@ -2,7 +2,6 @@ package uk.co.outrun.service;
 
 import org.springframework.stereotype.Service;
 import uk.co.outrun.model.Dog;
-import uk.co.outrun.model.SearchRequest;
 
 import java.util.List;
 
@@ -10,21 +9,12 @@ import java.util.List;
 public interface DogService {
     List<Dog> getAllDogs();
 
-    Dog getDogByDogNum(int id);
+    Dog getDogById(int id);
 
-    List<Dog> getDogByRegName(String regName);
+    List<Dog> getFamilyTree(int id);
 
-    List<Dog> searchByRegName(String regName);
+    List<Dog> getChildren(int id);
 
-    List<Dog> search(SearchRequest req);
+    List<Dog> getSiblings(int id);
 
-    void newDog(Dog dog);
-
-    List<Dog> getFamilyTree(int dogNum);
-
-    List<Dog> getChildren(int dogNum);
-
-    List<Dog> getSiblings(int dogNum);
-
-//    void editDogById(int id, Dog dog);
 }

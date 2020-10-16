@@ -1,30 +1,30 @@
 package uk.co.outrun.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 
-import java.util.List;
-import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
-@Setter
+@Setter(value = AccessLevel.PACKAGE)
 @Builder
-@ToString
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@Entity
 public class Dog {
 
     @Id
-    private String id;
-    private Integer dogNum;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String regName;
     private String regNo;
     private String chipNo;
     private String dogImg;
-    private String breeder;
-    private String owner;
-    private String kennel;
+    private String breederId;
+    private String ownerId;
+    private String kennelId;
     private Integer sireId;
     private Integer damId;
     private String callName;
@@ -35,11 +35,8 @@ public class Dog {
     private String landOfStanding;
     private String size;
     private String weight;
-    private Map<String, Object> colour;
     private String coat;
-    private List<String> titles;
     private String coi;
-    private Map<String, String> healthTests;
     private String notes;
 
 }
