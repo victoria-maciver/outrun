@@ -11,10 +11,10 @@ public interface DogService {
 
     Dog getDogById(int id);
 
-    List<Dog> getFamilyTree(int dogNum);
+    List<Dog> getFamilyTree(int id);
 
-    List<Dog> getChildren(int dogNum);
+    List<Dog> getChildren(int id);
 
-    List<Dog> getSiblings(int dogNum);
+    List<Dog> getSiblings(int id);
 
 }

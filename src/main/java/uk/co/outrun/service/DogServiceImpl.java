@@ -15,15 +15,6 @@ public class DogServiceImpl implements DogService {
     @Autowired
     DogRepository dogRepository;
 
-//    @Autowired
-//    DogNumService numService;
-
-    private List<Dog> convertToList(Iterable<Dog> iterable) {
-        List<Dog> list = new ArrayList<>();
-        iterable.forEach(list::add);
-        return list;
-    }
-
     @Override
     public List<Dog> getAllDogs() {
         List<Dog> list = new ArrayList<>();
@@ -68,15 +59,15 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
-    public List<Dog> getSiblings(int dogNum) {
-        Dog child = dogRepository.findById(dogNum).orElse(null);
+    public List<Dog> getSiblings(int id) {
+        Dog child = dogRepository.findById(id).orElse(null);
 
         if (child == null) {
             return null;
         }
         // If one parent is unknown, then there is no way to know their siblings
         if (child.getSireId() != null && child.getDamId() != null) {
-            return dogRepository.findSiblings(dogNum, child.getSireId(), child.getDamId());
+            return dogRepository.findSiblings(id, child.getSireId(), child.getDamId());
         } else {
             return null;
         }
