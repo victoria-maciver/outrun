@@ -7,6 +7,13 @@ services:
     restart: always
     ports:
       - 81:8081
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USERNAME: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
 
   outrun-web:
     image: 725705545716.dkr.ecr.eu-west-2.amazonaws.com/outrun-web:latest
