@@ -2,8 +2,8 @@ FROM openjdk:11-jre-slim
 ADD VERSION .
 ARG VERSION_NUMBER
 COPY ./target/outrun-0.1.0.jar /
-EXPOSE 8443
-EXPOSE 8081
+#EXPOSE 8443
+EXPOSE 9091
 
 RUN groupadd outrun && useradd -g outrun -s /bin/false outrun
 

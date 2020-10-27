@@ -3,10 +3,11 @@ version: '3.7'
 services:
   outrun:
     image: 725705545716.dkr.ecr.eu-west-2.amazonaws.com/outrun:latest
+#    image: outrun
     container_name: outrun
     restart: always
     ports:
-      - 81:8081
+      - 9091:9091
     environment:
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_PORT: ${MYSQL_PORT}
@@ -17,9 +18,12 @@ services:
 
   outrun-web:
     image: 725705545716.dkr.ecr.eu-west-2.amazonaws.com/outrun-web:latest
+#    image: outrun-web
     container_name: outrun-web
     restart: always
     ports:
       - 80:8080
+    links:
+      - outrun
     depends_on:
       - outrun
